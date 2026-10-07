@@ -4,9 +4,11 @@ Real-time vehicle tracking built with Laravel, Inertia, React, MapLibre, Laravel
 
 The application stores the latest state of every car, tracks cars by their unique `ident`, broadcasts position changes through WebSockets, displays every car on a map, and stores a paginated update history.
 
-![image 1]([image.png](https://assets.el-mehdi.work/projects/exm-1.png))
-- Logs of each car
-![image 1]([image.png](https://assets.el-mehdi.work/projects/exm-2.png))
+![Car Tracker Map](https://assets.el-mehdi.work/projects/exm-1.png)
+
+## Logs of each car
+
+![Car Logs](https://assets.el-mehdi.work/projects/exm-2.png)
 
 ## Requirements
 
