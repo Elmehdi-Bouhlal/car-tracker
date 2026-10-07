@@ -4,6 +4,10 @@ Real-time vehicle tracking built with Laravel, Inertia, React, MapLibre, Laravel
 
 The application stores the latest state of every car, tracks cars by their unique `ident`, broadcasts position changes through WebSockets, displays every car on a map, and stores a paginated update history.
 
+![image 1]([image.png](https://assets.el-mehdi.work/projects/exm-1.png))
+- Logs of each car
+![image 1]([image.png](https://assets.el-mehdi.work/projects/exm-2.png))
+
 ## Requirements
 
 - PHP 8.3 or later
@@ -14,7 +18,7 @@ The application stores the latest state of every car, tracks cars by their uniqu
 ## Installation
 
 ```bash
-git clone <repository-url> car-trucker
+git clone git@github.com:Elmehdi-Bouhlal/car-tracker.git car-trucker
 cd car-trucker
 composer setup
 ```
@@ -48,23 +52,6 @@ The queue listener must run because the Reverb broadcast listener is queued afte
 
 Open `http://localhost:8000` after the processes start.
 
-## Useful grouped commands
-
-```bash
-# Install and prepare the complete project
-composer setup
-
-# Start Laravel, Vite, the queue, and Reverb
-composer dev
-
-# Run backend tests, PHP formatting checks, PHPStan,
-# frontend linting, TypeScript checks, and the production build
-composer verify
-
-# Clear Laravel caches
-composer clear
-```
-
 ## Architecture
 
 Backend requests follow this flow:
@@ -85,8 +72,6 @@ Route
 - Repositories contain database queries.
 - Models define database records, casts, and relationships.
 - `ident` is the primary key of the `car` table and uniquely identifies each car.
-
-No repository interfaces or contracts are used. Services inject repository classes directly.
 
 ## API endpoints
 
