@@ -43,6 +43,7 @@
         "setup": [
             "composer install",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan key:generate",
             "@php artisan migrate --force",
             "npm install",
@@ -50,10 +51,10 @@
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
-            "npx concurrently \"php artisan serve\" \"yarn dev\" \"php artisan queue:listen --tries=1\" \"php artisan reverb:start\""
+            "npx concurrently --kill-others --names=server,vite,queue,reverb \"php artisan serve\" \"npm run dev\" \"php artisan queue:listen --tries=3\" \"php artisan reverb:start\""
         ],
         "clear": [
-            "@php artisan optimize"
+            "@php artisan optimize:clear"
         ],
         "lint": [
             "pint --parallel"
@@ -66,6 +67,13 @@
             "npm run check",
             "npm run types:check",
             "@test"
+        ],
+        "verify": [
+            "Composer\\Config::disableProcessTimeout",
+            "@test",
+            "npm run check",
+            "npm run types:check",
+            "npm run build"
         ],
         "types:check": [
             "phpstan analyse"
