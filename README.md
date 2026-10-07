@@ -210,20 +210,3 @@ VITE_REVERB_SCHEME="${REVERB_SCHEME}"
 ```
 
 Laravel and the frontend must use matching Reverb values.
-
-## Validation
-
-Run every project check with:
-
-```bash
-composer verify
-```
-
-This runs:
-
-- Laravel tests
-- Laravel Pint check
-- PHPStan
-- Frontend formatting and linting
-- TypeScript checking
-- Production frontend build
